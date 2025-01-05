@@ -13,7 +13,7 @@ const initialState: TinitialState = {
       description: "hfdaskjh",
       dueDate: "2030-2-3",
       isCompleted: false,
-      priority: "High",
+      priority: "Low",
     },
   ],
   filter: "High",
