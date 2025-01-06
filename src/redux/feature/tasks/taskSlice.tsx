@@ -6,6 +6,11 @@ interface TinitialState {
   tasks: ITask[];
   filter: "High" | "Medium" | "Low";
 }
+type DraftTask = Pick<ITask, "title" | "description" | "priority" | "dueDate">;
+const createTask = (newTask: DraftTask): ITask => {
+  const id = uuidv4();
+  return { id: id, isCompleted: false, ...newTask };
+};
 const initialState: TinitialState = {
   tasks: [],
   filter: "High",
@@ -15,8 +20,7 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<ITask>) => {
-      const id = uuidv4();
-      const newTask = { ...action.payload, id, isCompleted: false };
+      const newTask = createTask(action.payload);
       state.tasks.push(newTask);
     },
   },
