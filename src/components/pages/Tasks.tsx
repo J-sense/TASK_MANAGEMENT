@@ -8,12 +8,16 @@ const Tasks = () => {
   console.log(tasks);
   return (
     <>
-      <h1>Add Task</h1>
-      <Addmodel />
-      <div>
-        {tasks.map((task, index) => (
-          <TaskCard task={task} key={index} />
-        ))}
+      <div className="flex flex-col items-center w-[600px] mx-auto gap-4">
+        <div className="ml-auto ">
+          <Addmodel />
+        </div>
+
+        <div>
+          {tasks.map((task, index) => (
+            <TaskCard task={task} key={index} />
+          ))}
+        </div>
       </div>
     </>
   );
